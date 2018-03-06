@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  AppLover Base Project Template
+//  AppLoverBaseProject xcode template
 //
-//  Created by Przemyslaw Biskup on 15/12/2017.
-//  Copyright © 2017 Przemyslaw Biskup. All rights reserved.
+//  Created by Przemyslaw Biskup on 07/01/2018.
+//  Copyright © 2018 Przemyslaw Biskup. All rights reserved.
 //
 
 import UIKit
@@ -11,21 +11,14 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
-
+    private let window = UIWindow.init(frame: UIScreen.main.bounds)
+    private let mainController = UINavigationController()
+    private(set) var appCoordynator: AppCoordynator!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        window = UIWindow.init(frame: UIScreen.main.bounds)
-        window?.backgroundColor = UIColor.white
-        
-        let splashViewController = SplashScreenViewController()
-        let navigationController = UINavigationController()
-        navigationController.viewControllers = [splashViewController]
-        navigationController.navigationBar.isHidden = true
-        
-        window!.rootViewController = navigationController
-        window!.makeKeyAndVisible()
+        appCoordynator = AppCoordynator(window: window, mainController: mainController)
+        appCoordynator.startApplication()
         
         return true
     }
