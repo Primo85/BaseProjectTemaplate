@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         appCoordynator = AppCoordynator(window: window, mainController: mainController)
         appCoordynator.startApplication()
         
+        //dosdfosn
         return true
     }
 
